@@ -49,6 +49,7 @@ need to make them all work.
         - Alarm Enabled == true.
         - The app is in the foreground.
     - If _any_ of those conditions become false, the alarm should deactivate.
+    - The alarm should change even if the alarm view is not currently visible.
 
 ## Implementation
 
