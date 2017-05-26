@@ -20,11 +20,15 @@ class AlarmState: NSObject {
     var dangerLevel: Float
     var alarmThreshold: Float
     var alarmEnabled: Bool
+    var appIsForeground: Bool
     
     override init() {
+        AppForegroundState.observeAppStatus()
+        
         dangerLevel = 0.5
         alarmThreshold = AlarmDefaults.alarmThreshold
         alarmEnabled = AlarmDefaults.alarmEnabled
+        appIsForeground = AppForegroundState.isInForeground
     }
 }
 
@@ -53,6 +57,11 @@ extension AlarmState {
         AlarmDefaults.alarmEnabled = enabled
         update()
     }
+    
+    static func setAppIn(_ foreground: Bool) {
+        currentState.appIsForeground = foreground
+        update()
+    }
 }
 
 //////////////////////////////
@@ -70,7 +79,7 @@ extension AlarmState {
 // MARK: - Updating
 extension AlarmState {
     static var shouldAlarmBeActive: Bool {
-        guard currentState.alarmEnabled else {
+        guard currentState.alarmEnabled, currentState.appIsForeground else {
             return false
         }
         return currentState.dangerLevel >= currentState.alarmThreshold

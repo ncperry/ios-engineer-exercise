@@ -21,6 +21,7 @@
 		43CEDBEB1ED887C600CE673F /* AlarmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEDBEA1ED887C600CE673F /* AlarmState.swift */; };
 		43CEDBED1ED88A5900CE673F /* AlarmSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEDBEC1ED88A5900CE673F /* AlarmSubscriber.swift */; };
 		43CEDBEF1ED88B1300CE673F /* AlarmDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEDBEE1ED88B1300CE673F /* AlarmDefaults.swift */; };
+		43CEDBF11ED8940400CE673F /* AppForegroundState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEDBF01ED8940400CE673F /* AppForegroundState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		43CEDBEA1ED887C600CE673F /* AlarmState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
 		43CEDBEC1ED88A5900CE673F /* AlarmSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSubscriber.swift; sourceTree = "<group>"; };
 		43CEDBEE1ED88B1300CE673F /* AlarmDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDefaults.swift; sourceTree = "<group>"; };
+		43CEDBF01ED8940400CE673F /* AppForegroundState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppForegroundState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,10 +218,11 @@
 		43CEDBE81ED887B100CE673F /* AlarmState */ = {
 			isa = PBXGroup;
 			children = (
-				43CEDBEA1ED887C600CE673F /* AlarmState.swift */,
 				43CEDBE91ED887C600CE673F /* Exercise-Bridging-Header.h */,
+				43CEDBEA1ED887C600CE673F /* AlarmState.swift */,
 				43CEDBEC1ED88A5900CE673F /* AlarmSubscriber.swift */,
 				43CEDBEE1ED88B1300CE673F /* AlarmDefaults.swift */,
+				43CEDBF01ED8940400CE673F /* AppForegroundState.swift */,
 			);
 			name = AlarmState;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				408483D31A9D060800C8B0B4 /* main.m in Sources */,
 				43CEDBED1ED88A5900CE673F /* AlarmSubscriber.swift in Sources */,
 				4084840D1A9D15BF00C8B0B4 /* DangerViewController.m in Sources */,
+				43CEDBF11ED8940400CE673F /* AppForegroundState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
