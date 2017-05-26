@@ -8,14 +8,16 @@
 
 import Foundation
 
+//////////////////////////////
+// MARK: - List Of Subscribers
 private struct SubscriberWrapper {
     weak var subscriber: AlarmSubscriber?
 }
-
 private var wrappers = [SubscriberWrapper]()
 
+//////////////////////////////
+// MARK: - Actual State
 private var currentState = AlarmState()
-
 class AlarmState: NSObject {
     var dangerLevel: Float
     var alarmThreshold: Float
@@ -23,12 +25,12 @@ class AlarmState: NSObject {
     var appIsForeground: Bool
     
     override init() {
-        AppForegroundState.observeAppStatus()
+        ApplicationState.observeAppStatus()
         
         dangerLevel = 0.5
-        alarmThreshold = AlarmDefaults.alarmThreshold
-        alarmEnabled = AlarmDefaults.alarmEnabled
-        appIsForeground = AppForegroundState.isInForeground
+        alarmThreshold = AlarmDefaults.threshold
+        alarmEnabled = AlarmDefaults.enabled
+        appIsForeground = ApplicationState.isInForeground
     }
 }
 
@@ -48,17 +50,17 @@ extension AlarmState {
     static func setAlarmThreshold(_ threshold: Float) {
         let threshold = restrictToUnitSegment(threshold)
         currentState.alarmThreshold = threshold
-        AlarmDefaults.alarmThreshold = threshold
+        AlarmDefaults.threshold = threshold
         update()
     }
     
     static func setAlarmEnabled(_ enabled: Bool) {
         currentState.alarmEnabled = enabled
-        AlarmDefaults.alarmEnabled = enabled
+        AlarmDefaults.enabled = enabled
         update()
     }
     
-    static func setAppIn(_ foreground: Bool) {
+    static func setAppIn(foreground: Bool) {
         currentState.appIsForeground = foreground
         update()
     }

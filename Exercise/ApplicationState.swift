@@ -1,5 +1,5 @@
 //
-//  AppForegroundState.swift
+//  ApplicationState.swift
 //  Exercise
 //
 //  Created by Nate Perry on 5/26/17.
@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 private let observerWriteMutex = NSLock()
-private var foregroundStateObserver: AppForegroundState? = nil
+private var foregroundStateObserver: ApplicationState? = nil
 
-class AppForegroundState: NSObject {
+class ApplicationState: NSObject {
     static var isInForeground: Bool {
         switch UIApplication.shared.applicationState {
         case .active:
@@ -32,18 +32,18 @@ class AppForegroundState: NSObject {
             return
         }
         
-        let observer = AppForegroundState()
+        let observer = ApplicationState()
         NotificationCenter.default.addObserver(observer, selector: #selector(enterForeground), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
         NotificationCenter.default.addObserver(observer, selector: #selector(leaveForeground), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         foregroundStateObserver = observer
     }
     
     @objc private func enterForeground() {
-        AlarmState.setAppIn(true)
+        AlarmState.setAppIn(foreground: true)
     }
     
     @objc private func leaveForeground() {
-        AlarmState.setAppIn(false)
+        AlarmState.setAppIn(foreground: false)
     }
 }
 

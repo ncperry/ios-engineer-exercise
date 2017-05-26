@@ -12,7 +12,7 @@ struct AlarmDefaults {
     private static let alarmThresholdKey: String = "Defaults.AlarmThreshold"
     private static let alarmEnabledKey: String = "Defaults.AlarmEnabled"
     
-    static var alarmThreshold: Float {
+    static var threshold: Float {
         get {
             guard let number = UserDefaults.standard.value(forKey: alarmThresholdKey) as? NSNumber else {
                 return 0.9
@@ -25,7 +25,7 @@ struct AlarmDefaults {
         }
     }
     
-    static var alarmEnabled: Bool {
+    static var enabled: Bool {
         get {
             guard let number = UserDefaults.standard.value(forKey: alarmEnabledKey) as? NSNumber else {
                 return true
