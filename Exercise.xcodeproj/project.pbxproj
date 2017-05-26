@@ -18,6 +18,9 @@
 		408484001A9D0B9600C8B0B4 /* AlarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 408483FF1A9D0B9600C8B0B4 /* AlarmViewController.m */; };
 		4084840A1A9D15AB00C8B0B4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 408484091A9D15AB00C8B0B4 /* SettingsViewController.m */; };
 		4084840D1A9D15BF00C8B0B4 /* DangerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4084840C1A9D15BF00C8B0B4 /* DangerViewController.m */; };
+		43CEDBEB1ED887C600CE673F /* AlarmState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEDBEA1ED887C600CE673F /* AlarmState.swift */; };
+		43CEDBED1ED88A5900CE673F /* AlarmSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEDBEC1ED88A5900CE673F /* AlarmSubscriber.swift */; };
+		43CEDBEF1ED88B1300CE673F /* AlarmDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43CEDBEE1ED88B1300CE673F /* AlarmDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		4084840B1A9D15BF00C8B0B4 /* DangerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DangerViewController.h; sourceTree = "<group>"; };
 		4084840C1A9D15BF00C8B0B4 /* DangerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DangerViewController.m; sourceTree = "<group>"; };
 		40FA92251ADDB120000BAC27 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = SOURCE_ROOT; };
+		43CEDBE91ED887C600CE673F /* Exercise-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Exercise-Bridging-Header.h"; sourceTree = "<group>"; };
+		43CEDBEA1ED887C600CE673F /* AlarmState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmState.swift; sourceTree = "<group>"; };
+		43CEDBEC1ED88A5900CE673F /* AlarmSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmSubscriber.swift; sourceTree = "<group>"; };
+		43CEDBEE1ED88B1300CE673F /* AlarmDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +110,7 @@
 		408483CF1A9D060800C8B0B4 /* Exercise */ = {
 			isa = PBXGroup;
 			children = (
+				43CEDBE81ED887B100CE673F /* AlarmState */,
 				40FA92251ADDB120000BAC27 /* README.markdown */,
 				408483F61A9D061500C8B0B4 /* Application */,
 				408483F71A9D061A00C8B0B4 /* View Controllers */,
@@ -205,6 +213,17 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		43CEDBE81ED887B100CE673F /* AlarmState */ = {
+			isa = PBXGroup;
+			children = (
+				43CEDBEA1ED887C600CE673F /* AlarmState.swift */,
+				43CEDBE91ED887C600CE673F /* Exercise-Bridging-Header.h */,
+				43CEDBEC1ED88A5900CE673F /* AlarmSubscriber.swift */,
+				43CEDBEE1ED88B1300CE673F /* AlarmDefaults.swift */,
+			);
+			name = AlarmState;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +273,7 @@
 				TargetAttributes = {
 					408483CC1A9D060800C8B0B4 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0820;
 					};
 					408483E51A9D060800C8B0B4 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -306,11 +326,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				408484001A9D0B9600C8B0B4 /* AlarmViewController.m in Sources */,
+				43CEDBEF1ED88B1300CE673F /* AlarmDefaults.swift in Sources */,
 				4026E49A1A9D21F70036995F /* Alarm.m in Sources */,
 				408483D61A9D060800C8B0B4 /* AppDelegate.m in Sources */,
+				43CEDBEB1ED887C600CE673F /* AlarmState.swift in Sources */,
 				4084840A1A9D15AB00C8B0B4 /* SettingsViewController.m in Sources */,
 				408483FC1A9D07ED00C8B0B4 /* AlarmView.m in Sources */,
 				408483D31A9D060800C8B0B4 /* main.m in Sources */,
+				43CEDBED1ED88A5900CE673F /* AlarmSubscriber.swift in Sources */,
 				4084840D1A9D15BF00C8B0B4 /* DangerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,9 +458,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Exercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Exercise/Exercise-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -445,15 +472,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Exercise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Exercise/Exercise-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		408483F41A9D060800C8B0B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -473,6 +504,7 @@
 		408483F51A9D060800C8B0B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
