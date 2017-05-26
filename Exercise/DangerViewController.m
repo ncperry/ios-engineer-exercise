@@ -17,6 +17,16 @@
 #pragma mark Actions
 - (IBAction)dangerSliderValueChanged:(UISlider *)sender
 {
-    // TODO: Change the danger value.
+    [AlarmState setDangerLevel:sender.value];
 }
+
+-(void)updateWith:(AlarmState *)state {
+    [_dangerSlider setValue:state.dangerLevel];
+}
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [AlarmState addSubscriber:self];
+}
+
 @end

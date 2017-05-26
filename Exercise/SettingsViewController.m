@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 
+
 @interface SettingsViewController()
 @property (nonatomic, weak) IBOutlet UISlider *alarmThresholdSlider;
 @property (nonatomic, weak) IBOutlet UISwitch *alarmEnabledSwitch;
@@ -23,11 +24,22 @@
 
 - (IBAction)alarmThresholdSliderValueChanged:(UISlider *)sender
 {
-    // TODO: Change the alarm activation threshold.
+    [AlarmState setAlarmThreshold:sender.value];
 }
 
 - (IBAction)alarmEnabledSwitchValueChanged:(UISwitch *)sender
 {
-    // TODO: Toggle whether the alarm is enabled.
+    [AlarmState setAlarmEnabled:sender.isOn];
+}
+
+
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [AlarmState addSubscriber:self];
+}
+
+-(void)updateWith:(AlarmState *)state {
+    [_alarmThresholdSlider setValue:state.alarmThreshold];
+    [_alarmEnabledSwitch setOn:state.alarmEnabled];
 }
 @end

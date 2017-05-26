@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Exercise-Swift.h"
 
 /// A SettingsViewController manages user-facing preferences about when the
 /// alarm should activate. You should not instantiate instances of this class
 /// directly.
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <AlarmSubscriber>
 @end
